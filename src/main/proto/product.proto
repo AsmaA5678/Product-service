@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package com.example.product.proto;
+
+option java_multiple_files = true;
+option java_package = "com.example.product.proto";
+option java_outer_classname = "ProductProto";
+
+service ProductService {
+    rpc CheckStock (ProductRequest) returns (ProductResponse);
+}
+
+message ProductRequest {
+    int64 productId = 1;
+    int32 quantity = 2;
+}
+
+message ProductResponse {
+    bool available = 1;
+}
